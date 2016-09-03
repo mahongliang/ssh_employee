@@ -58,9 +58,7 @@
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
 	<!-- 配置dao的类 -->
-	<bean id="userDao" class="com.ssh.dao.UserDao">
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
+	
 	<!-- 配置service的类 -->
 	
 	<!-- 配置action的类 -->

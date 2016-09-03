@@ -15,7 +15,7 @@
       
 	<!-- 配置自动扫描的包 -->
 	<context:component-scan base-package="com.ssh"></context:component-scan>
-
+	
 	<!-- 配置数据源 -->
 	<!-- 导入资源文件 -->
 	<context:property-placeholder location="classpath:db.properties" />
@@ -47,9 +47,24 @@
 		<property name="mappingLocations" value="classpath:com/ssh/bean/*.hbm.xml"></property>
 	</bean>
 
+
+	<!-- 配置事物管理器 -->
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<!-- 开启注解事物 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<!-- 配置dao的类 -->
+	<bean id="userDao" class="com.ssh.dao.UserDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 配置service的类 -->
+	
+	<!-- 配置action的类 -->
+	<bean id="registerAction" class="com.ssh.action.RegisterAction" scope="prototype">
 	</bean>
 
 </beans>

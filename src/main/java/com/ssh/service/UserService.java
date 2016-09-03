@@ -1,5 +1,7 @@
 package com.ssh.service;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.HibernateException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import com.ssh.bean.User;
 import com.ssh.dao.UserDao;
 import com.ssh.forms.UserForm;
 
+@Transactional
 @Service
 public class UserService {
 

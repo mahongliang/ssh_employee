@@ -11,6 +11,11 @@
             <result name="success">/success.jsp</result>
             <result name="error">/fail.jsp</result>
         </action>
+        
+        <action name="employee_*" class="employeeAction" method="{1}">
+            <result name="input">/index.jsp</result>
+            <result name="success" type="redirect">/frame.jsp</result>
+        </action>
     </package>
 
 </struts>

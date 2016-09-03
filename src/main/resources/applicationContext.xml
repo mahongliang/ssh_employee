@@ -58,11 +58,15 @@
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
 	<!-- 配置dao的类 -->
+	<bean id="employeeDao" class="com.ssh.dao.impl.EmployeeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	
 	<!-- 配置service的类 -->
 	
 	<!-- 配置action的类 -->
-	<bean id="registerAction" class="com.ssh.action.RegisterAction" scope="prototype">
-	</bean>
+	<bean id="registerAction" class="com.ssh.action.RegisterAction" scope="prototype" />
+
+	<bean id="employeeAction" class="com.ssh.action.EmployeeAction" scope="prototype" />
 
 </beans>

@@ -6,7 +6,7 @@
 <struts>
 
    <package name="default" extends="struts-default">
-        <action name="register" class="com.ssh.action.RegisterAction">
+        <action name="register" class="registerAction">
             <result name="input">/Register.jsp</result>
             <result name="success">/success.jsp</result>
             <result name="error">/fail.jsp</result>

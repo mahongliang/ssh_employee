@@ -1,6 +1,7 @@
 package com.ssh.service;
 
 import com.ssh.bean.Employee;
+import com.ssh.util.PageBean;
 
 /**
  * 员工管理接口
@@ -10,5 +11,7 @@ import com.ssh.bean.Employee;
 public interface EmployeeService {
 
 	Employee login(Employee employee);
+
+	PageBean<Employee> findByPage(int curPage);
 	
 }

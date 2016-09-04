@@ -28,7 +28,7 @@
 <td align="center" style="font-size:24px; color:#666"> 员工管理</td>
 </tr>
 <tr>
-<td align="right" > <a href="addEmployee.html">添加</a></td>
+<td align="right" > <a href="<%=basePath %>employee_saveUI.action">添加</a></td>
 </tr>
 </table>
 <br/>
@@ -44,6 +44,7 @@
 <td align="center">入职时间</td>
 <td align="center">所属部门</td>
 <td align="center">编辑</td>
+<td align="center">删除</td>
 </tr>
 </thead>
 <tbody>
@@ -53,10 +54,11 @@
 <td align="center"><s:property value="#e.eid"/></td>
 <td align="center"><s:property value="#e.ename"/></td>
 <td align="center"><s:property value="#e.sex"/></td>
-<td align="center"><s:property value="#e.birthday"/></td>
-<td align="center"><s:property value="#e.joinDate"/></td>
-<td align="center"><s:property value="#e.eno"/></td>
-<td align="center"><a href="editEmployee.html"><img src="<%=basePath %>images/编辑.png"></a></a></td>
+<td align="center"><s:date name="#e.birthday" format="yyyy-MM-dd"/></td>
+<td align="center"><s:date name="#e.joinDate" format="yyyy-MM-dd"/></td>
+<td align="center"><s:property value="#e.department.dname"/></td>
+<td align="center"><a href="<%= basePath %>employee_edit?eid=<s:property value="#e.eid"/>"><img src="<%=basePath %>images/编辑.png"></a></td>
+<td align="center"><a href="<%= basePath %>employee_delete?eid=<s:property value="#e.eid"/>"><img src="<%=basePath %>images/编辑.png"></a></td>
 </tr>
 </s:iterator>
 </tbody>
@@ -71,13 +73,13 @@
    <span>
   
   	<s:if test="currPage != 1">
-  	 	<a href="<%=basePath %>department_findAll.action?curPage=1">[首页]</a>&nbsp;&nbsp;
-       <a href="<%=basePath %>department_findAll.action?curPage=<s:property value="currPage-1"/>">[上一页]</a>&nbsp;&nbsp;
+  	 	<a href="<%=basePath %>employee_findAll.action?curPage=1">[首页]</a>&nbsp;&nbsp;
+       <a href="<%=basePath %>employee_findAll.action?curPage=<s:property value="currPage-1"/>">[上一页]</a>&nbsp;&nbsp;
   	</s:if>
   	
   	<s:if test="currPage != totalPage">
-  		<a href="<%=basePath %>department_findAll.action?curPage=<s:property value="currPage+1"/>">[下一页]</a>&nbsp;&nbsp;
-        <a href="<%=basePath %>department_findAll.action?curPage=<s:property value="totalPage"/>">[尾页]</a>&nbsp;&nbsp;
+  		<a href="<%=basePath %>employee_findAll.action?curPage=<s:property value="currPage+1"/>">[下一页]</a>&nbsp;&nbsp;
+        <a href="<%=basePath %>employee_findAll.action?curPage=<s:property value="totalPage"/>">[尾页]</a>&nbsp;&nbsp;
   	</s:if>
       
        

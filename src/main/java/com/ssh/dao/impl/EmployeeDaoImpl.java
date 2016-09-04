@@ -38,4 +38,28 @@ public class EmployeeDaoImpl extends  HibernateDaoSupport implements EmployeeDao
 		return 0;
 	}
 
+	@Override
+	public void save(Employee employee) {
+		// TODO Auto-generated method stub
+		this.getHibernateTemplate().save(employee);
+	}
+
+	@Override
+	public Employee getById(Integer eid) {
+		// TODO Auto-generated method stub
+		return this.getHibernateTemplate().get(Employee.class, eid);
+	}
+
+	@Override
+	public void update(Employee employee) {
+		// TODO Auto-generated method stub
+		this.getHibernateTemplate().update(employee);
+	}
+
+	@Override
+	public void delete(Employee employee) {
+		// TODO Auto-generated method stub
+		this.getHibernateTemplate().delete(employee);
+	}
+
 }

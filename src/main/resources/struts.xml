@@ -16,11 +16,11 @@
             <result name="input">/index.jsp</result>
             <result name="success" type="redirect">/frame.jsp</result>
             <result name="findAll">/jsp/employee/listEmp.jsp</result>
-<!--         	<result name="saveUI">/jsp/employee/addDep.jsp</result> -->
-<!--         	<result name="saveSuccess" type="redirectAction">employee_findAll.action</result> -->
-<!--         	<result name="editSuccess">/jsp/employee/editDep.jsp</result> -->
-<!--         	<result name="updateSuccess" type="redirectAction">employee_findAll.action</result> -->
-<!--         	<result name="deleteSuccess" type="redirectAction">employee_findAll.action</result> -->
+        	<result name="saveUI">/jsp/employee/addEmp.jsp</result>
+        	<result name="saveSuccess" type="redirectAction">employee_findAll.action</result>
+        	<result name="editUI">/jsp/employee/editEmp.jsp</result>
+        	<result name="updateSuccess" type="redirectAction">employee_findAll.action</result>
+        	<result name="deleteSuccess" type="redirectAction">employee_findAll.action</result>
         </action>
         
         <action name="department_*" class="departmentAction" method="{1}">

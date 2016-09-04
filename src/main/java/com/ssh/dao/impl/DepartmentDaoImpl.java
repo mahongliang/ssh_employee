@@ -54,5 +54,11 @@ public class DepartmentDaoImpl extends HibernateDaoSupport implements Department
 		
 	}
 
+	@Override
+	public List<Department> findAll() {
+		// TODO Auto-generated method stub
+		return (List<Department>) this.getHibernateTemplate().find("from Department");
+	}
+
 
 }

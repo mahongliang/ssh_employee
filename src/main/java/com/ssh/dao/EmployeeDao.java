@@ -12,4 +12,12 @@ public interface EmployeeDao {
 
 	int findCount();
 
+	void save(Employee employee);
+
+	Employee getById(Integer eid);
+
+	void update(Employee employee);
+
+	void delete(Employee employee);
+
 }

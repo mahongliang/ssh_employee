@@ -14,7 +14,7 @@
 		<property name="ddesc" column="ddesc" length="100"/>
 		
 		<!-- 关联关系映射 -->
-		<set name="employees">
+		<set name="employees" cascade="delete" inverse="true">
 			<key column="dno"></key>
 			<one-to-many class="com.ssh.bean.Employee"/>
 		</set>

@@ -76,5 +76,11 @@ public class DepartmentServiceImpl implements DepartmentService {
 		departmentDao.delete(department);
 	}
 
+	@Override
+	public List<Department> findAll() {
+		// TODO Auto-generated method stub
+		return departmentDao.findAll();
+	}
+
 
 }

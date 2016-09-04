@@ -1,5 +1,7 @@
 package com.ssh.action;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
@@ -7,12 +9,18 @@ import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import com.ssh.bean.Department;
 import com.ssh.bean.Employee;
+import com.ssh.service.DepartmentService;
 import com.ssh.service.EmployeeService;
 import com.ssh.util.PageBean;
 
 public class EmployeeAction extends ActionSupport implements ModelDriven<Employee>{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Employee employee = new Employee();
 	private int curPage = 1;
 	
@@ -27,6 +35,9 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 
 	@Autowired
 	private EmployeeService employeeService;
+	
+	@Autowired
+	private DepartmentService departmentService;
 	@Override
 	public Employee getModel() {
 		// TODO Auto-generated method stub
@@ -49,6 +60,38 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 		PageBean<Employee> pageBean = employeeService.findByPage(curPage);
 		ActionContext.getContext().getValueStack().push(pageBean);
 		return "findAll";
+	}
+	
+	public String saveUI(){
+		List<Department> list =  departmentService.findAll();
+		ActionContext.getContext().getValueStack().set("list", list);
+		return "saveUI";
+	}
+	
+	public String save(){
+		employeeService.save(employee);
+		return "saveSuccess";
+	}
+	
+	public String edit(){
+		employee = employeeService.getById(employee.getEid());
+		List<Department> list =  departmentService.findAll();
+		ActionContext.getContext().getValueStack().set("list", list);
+		return "editUI";
+	}
+	
+	public String update(){
+		
+		employeeService.update(employee);
+		return "updateSuccess";
+	}
+	
+	public String delete(){
+		
+		employee = employeeService.getById(employee.getEid());
+		
+		employeeService.delete(employee);
+		return "deleteSuccess";
 	}
 
 }

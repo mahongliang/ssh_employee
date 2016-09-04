@@ -13,5 +13,13 @@ public interface EmployeeService {
 	Employee login(Employee employee);
 
 	PageBean<Employee> findByPage(int curPage);
+
+	void save(Employee employee);
+
+	Employee getById(Integer eid);
+
+	void update(Employee employee);
+
+	void delete(Employee employee);
 	
 }

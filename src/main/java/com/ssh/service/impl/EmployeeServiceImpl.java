@@ -2,6 +2,8 @@ package com.ssh.service.impl;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,7 @@ import com.ssh.util.PageBean;
  * @author mahl
  *
  */
+@Transactional
 @Service("employeeService")
 public class EmployeeServiceImpl implements EmployeeService {
 
@@ -58,5 +61,29 @@ public class EmployeeServiceImpl implements EmployeeService {
 		pageBean.setList(list);
 
 		return pageBean;
+	}
+
+	@Override
+	public void save(Employee employee) {
+		// TODO Auto-generated method stub
+		employeeDao.save(employee);
+	}
+
+	@Override
+	public Employee getById(Integer eid) {
+		// TODO Auto-generated method stub
+		return employeeDao.getById(eid);
+	}
+
+	@Override
+	public void update(Employee employee) {
+		employeeDao.update(employee);
+		
+	}
+
+	@Override
+	public void delete(Employee employee) {
+		employeeDao.delete(employee);
+		
 	}
 }

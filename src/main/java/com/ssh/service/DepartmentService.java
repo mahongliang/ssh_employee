@@ -1,5 +1,7 @@
 package com.ssh.service;
 
+import java.util.List;
+
 import com.ssh.bean.Department;
 import com.ssh.util.PageBean;
 
@@ -16,5 +18,7 @@ public interface DepartmentService {
 	
 
 	void delete(Department department);
+
+	List<Department> findAll();
 
 }
